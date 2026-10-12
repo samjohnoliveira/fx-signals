@@ -1,0 +1,3 @@
+# Daily forex signals for NewsSignalEA (demo account only)
+# Format: id;symbol;direction;entry;stop;target;expiry_utc
+# Overwritten each weekday morning by the scheduled task. No signals yet.
