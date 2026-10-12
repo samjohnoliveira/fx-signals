@@ -1,0 +1,28 @@
+# Weekly currency bias for NewsBiasEA (demo account only)
+# Week of 2026-10-12 | Generated 2026-10-12 13:20 UTC (initial build, Monday)
+# Scorecard (-2 weakest .. +2 strongest):
+#   USD +2  Fed still hiking (Dec hike ~85% priced), safe-haven bid on Middle East escalation, DXY near 18-month high
+#   GBP +1  BoE expected to tighten again in 2026; EUR/GBP at 16-month lows
+#   CHF  0  Safe-haven support, little fresh news
+#   JPY -1  Weak on rate gap, but intervention risk near 158-160 -> no USDJPY longs
+#   CAD -1  BoC diverging from a hawkish Fed; high oil partly offsets
+#   AUD -1  RBA November hike odds fading, risk-off
+#   EUR -2  Five straight weekly falls, French/European fiscal worries
+#   NZD -2  Net oil importer hit by $90 oil and risk aversion, near 17-month low
+#
+# BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
+BIAS;EURUSD;SELL;2;2026.10.16 20:00
+BIAS;NZDUSD;SELL;2;2026.10.16 20:00
+BIAS;EURGBP;SELL;1;2026.10.16 20:00
+BIAS;USDJPY;NONE;0;2026.10.16 20:00
+#
+# EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
+EVENT;2026.10.13 00:30;AUD;RBA minutes
+EVENT;2026.10.13 06:00;GBP;UK labour market data
+EVENT;2026.10.14 01:30;AUD;China CPI
+EVENT;2026.10.14 01:30;NZD;China CPI
+EVENT;2026.10.14 12:30;USD;US CPI (Sep)
+EVENT;2026.10.14 18:00;USD;Fed Beige Book
+EVENT;2026.10.15 00:30;AUD;Australia jobs (Sep)
+EVENT;2026.10.15 06:00;GBP;UK GDP (Aug)
+EVENT;2026.10.15 12:30;USD;US retail sales, PPI, Philly Fed
