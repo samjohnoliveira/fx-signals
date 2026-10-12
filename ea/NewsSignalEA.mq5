@@ -130,6 +130,13 @@ void ProcessSignal(string line)
    if(CountOpen() >= InpMaxOpenTrades)         { Print("NewsSignalEA: ", id, " waiting, max open trades reached"); return; }
    if(DailyLossHit())                          { Print("NewsSignalEA: ", id, " blocked, daily loss cap reached"); return; }
 
+   // Trading switched off in the terminal or for this EA: wait and retry, don't reject.
+   if(!TerminalInfoInteger(TERMINAL_TRADE_ALLOWED) || !MQLInfoInteger(MQL_TRADE_ALLOWED))
+     {
+      Print("NewsSignalEA: ", id, " waiting, Algo Trading is switched off");
+      return;
+     }
+
    MqlTick tick;
    if(!SymbolInfoTick(symbol, tick) || tick.ask <= 0) { Print("NewsSignalEA: no price yet for ", symbol); return; }
 
@@ -183,7 +190,18 @@ void ProcessSignal(string line)
       MarkHandled(id);
      }
    else
-      Reject(id, "order refused: " + trade.ResultRetcodeDescription());
+     {
+      uint rc = trade.ResultRetcode();
+      // Temporary conditions: leave the signal open so the next check retries it.
+      if(rc == TRADE_RETCODE_CLIENT_DISABLES_AT || rc == TRADE_RETCODE_SERVER_DISABLES_AT ||
+         rc == TRADE_RETCODE_MARKET_CLOSED    || rc == TRADE_RETCODE_CONNECTION ||
+         rc == TRADE_RETCODE_TIMEOUT          || rc == TRADE_RETCODE_REQUOTE ||
+         rc == TRADE_RETCODE_PRICE_OFF        || rc == TRADE_RETCODE_PRICE_CHANGED ||
+         rc == TRADE_RETCODE_TOO_MANY_REQUESTS|| rc == TRADE_RETCODE_TRADE_DISABLED)
+         Print("NewsSignalEA: ", id, " will retry - ", trade.ResultRetcodeDescription());
+      else
+         Reject(id, "order refused: " + trade.ResultRetcodeDescription());
+     }
   }
 
 //+------------------------------------------------------------------+
