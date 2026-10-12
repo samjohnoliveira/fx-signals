@@ -1,3 +1,4 @@
 # Daily forex signals for NewsSignalEA (demo account only)
 # Format: id;symbol;direction;entry;stop;target;expiry_utc
-# Overwritten each weekday morning by the scheduled task. No signals yet.
+# TEST SIGNAL - far from market, will not fill, expires 12:15 UTC (13:15 London)
+TEST-20261012-1;EURUSD;BUY;1.08000;1.07800;1.08400;2026.10.12 12:15
