@@ -22,7 +22,7 @@ input int    InpMaxOpenTrades      = 3;       // Max open positions + pending or
 input double InpDailyLossCapPct    = 3.0;     // Stop opening trades after losing this % in a day
 input double InpMinRiskReward      = 1.0;     // Reject signals with reward/risk below this
 input int    InpMarketTolerancePts = 30;      // Enter at market if price is within this many points of entry
-input string InpSymbolSuffix       = "";      // Broker symbol suffix, e.g. ".a" or "m"
+input string InpSymbolSuffix       = ".r";      // Broker symbol suffix, e.g. ".a" or "m"
 input long   InpMagic              = 20261011;// Magic number identifying this EA's trades
 
 CTrade trade;
