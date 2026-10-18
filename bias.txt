@@ -1,28 +1,27 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-10-12 | Generated 2026-10-12 13:20 UTC (initial build, Monday)
+# Week of 2026-10-19 | Generated 2026-10-18 17:53 UTC (weekly rebuild)
 # Scorecard (-2 weakest .. +2 strongest):
-#   USD +2  Fed still hiking (Dec hike ~85% priced), safe-haven bid on Middle East escalation, DXY near 18-month high
-#   GBP +1  BoE expected to tighten again in 2026; EUR/GBP at 16-month lows
-#   CHF  0  Safe-haven support, little fresh news
-#   JPY -1  Weak on rate gap, but intervention risk near 158-160 -> no USDJPY longs
-#   CAD -1  BoC diverging from a hawkish Fed; high oil partly offsets
-#   AUD -1  RBA November hike odds fading, risk-off
-#   EUR -2  Five straight weekly falls, French/European fiscal worries
-#   NZD -2  Net oil importer hit by $90 oil and risk aversion, near 17-month low
+#   GBP +2  BoE November hike about 90% priced, UK CPI seen rising, EUR/GBP at 52-week low, GBP/USD above 1.3350
+#   USD +1  Fed still in a hiking cycle with CPI 3.7% and PPI hot, but Warsh gave no steer and yields fell, DXY -0.5% last week
+#   CHF  0  Safe-haven bid on tech selloff and Gulf risk offsets a dovish SNB at 0%
+#   CAD  0  Oil above 100 dollars and USD/CAD -0.9% last week, but September jobs -68k keep BoC cut talk alive
+#   EUR -1  Stagflation from energy, French spread stress, ECB October hike not priced, first weekly gain after five falls
+#   JPY -1  BoJ unlikely to hike in October, oil above 100 hurts Japan, but 159-160 intervention line caps USD/JPY
+#   NZD -1  Oil importer hurt by Brent near 110, offset by RBNZ hike pricing ahead of NZ Q3 CPI
+#   AUD -2  September jobs -39k crushed RBA November hike bets, only major to fall vs USD last week, China GDP risk
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
-BIAS;EURUSD;SELL;2;2026.10.16 20:00
-BIAS;NZDUSD;SELL;2;2026.10.16 20:00
-BIAS;EURGBP;SELL;1;2026.10.16 20:00
-BIAS;USDJPY;NONE;0;2026.10.16 20:00
+BIAS;EURGBP;SELL;2;2026.10.23 20:00
+BIAS;GBPAUD;BUY;2;2026.10.23 20:00
+BIAS;AUDUSD;SELL;1;2026.10.23 20:00
+BIAS;USDJPY;NONE;0;2026.10.23 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.10.13 00:30;AUD;RBA minutes
-EVENT;2026.10.13 06:00;GBP;UK labour market data
-EVENT;2026.10.14 01:30;AUD;China CPI
-EVENT;2026.10.14 01:30;NZD;China CPI
-EVENT;2026.10.14 12:30;USD;US CPI (Sep)
-EVENT;2026.10.14 18:00;USD;Fed Beige Book
-EVENT;2026.10.15 00:30;AUD;Australia jobs (Sep)
-EVENT;2026.10.15 06:00;GBP;UK GDP (Aug)
-EVENT;2026.10.15 12:30;USD;US retail sales, PPI, Philly Fed
+EVENT;2026.10.19 02:00;AUD;China Q3 GDP and September activity data
+EVENT;2026.10.19 02:00;NZD;China Q3 GDP and September activity data
+EVENT;2026.10.19 12:30;CAD;Canada CPI (Sep)
+EVENT;2026.10.20 06:00;GBP;UK labour market data
+EVENT;2026.10.21 06:00;GBP;UK CPI (Sep)
+EVENT;2026.10.21 21:45;NZD;New Zealand CPI (Q3)
+EVENT;2026.10.22 23:30;JPY;Japan national CPI (Sep)
+EVENT;2026.10.23 06:00;GBP;UK retail sales (Sep)
