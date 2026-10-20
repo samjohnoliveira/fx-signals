@@ -4,4 +4,4 @@ week_start,symbol,bias,conviction,start_price,start_source,end_price,change_pips
 2026-10-12,EURGBP,SELL,1,0.8447,fxstreet.com 12 Oct,0.8432,15,WIN
 2026-10-19,EURGBP,SELL,2,0.8432,currencynews.co.uk 16 Oct close,,,
 2026-10-19,GBPAUD,BUY,2,1.9190,poundsterlinglive.com 16 Oct close,,,
-2026-10-19,AUDUSD,SELL,1,0.6946,sharetrader.com.au 16 Oct close,,,
+2026-10-19,AUDUSD,SELL,1,0.6946,sharetrader.com.au 16 Oct close (downgraded 2026-10-20),,,
