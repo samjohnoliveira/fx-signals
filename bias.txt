@@ -1,23 +1,22 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-10-19 | Reviewed 2026-10-20 07:12 UTC (daily review)
+# Week of 2026-10-19 | Reviewed 2026-10-21 05:56 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
-#   GBP +2  BoE November hike about 90% priced, UK CPI seen rising, EUR/GBP at 52-week low, GBP/USD above 1.3350
+#   GBP +2  UK unemployment fell to 4.7% and pay beat (20 Oct), November BoE hike near certain, EUR/GBP 0.8404 near 17-month low
 #   USD +1  Fed still in a hiking cycle with CPI 3.7% and PPI hot, but Warsh gave no steer and yields fell, DXY -0.5% last week
 #   CHF  0  Safe-haven bid on tech selloff and Gulf risk offsets a dovish SNB at 0%
 #   CAD  0  Oil above 100 dollars and USD/CAD -0.9% last week, but September jobs -68k keep BoC cut talk alive
 #   EUR -1  Stagflation from energy, French spread stress, ECB October hike not priced, first weekly gain after five falls
 #   JPY -1  BoJ unlikely to hike in October, oil above 100 hurts Japan, but 159-160 intervention line caps USD/JPY
 #   NZD -1  Oil importer hurt by Brent near 110, offset by RBNZ hike pricing ahead of NZ Q3 CPI
-#   AUD -2  September jobs -39k crushed RBA November hike bets, only major to fall vs USD last week, China GDP risk | 20 Oct review: AUD/USD downgraded to no-trade
+#   AUD -1  Was -2 on weak jobs, but RBA Deputy Hauser (21 Oct) called the inflation outlook materially worse, November hike odds up to ~41-45%
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
 BIAS;EURGBP;SELL;2;2026.10.23 20:00
-BIAS;GBPAUD;BUY;2;2026.10.23 20:00
+BIAS;GBPAUD;BUY;1;2026.10.23 20:00
 BIAS;AUDUSD;NONE;0;2026.10.23 20:00
 BIAS;USDJPY;NONE;0;2026.10.23 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.10.20 06:00;GBP;UK labour market data
 EVENT;2026.10.21 06:00;GBP;UK CPI (Sep)
 EVENT;2026.10.21 21:45;NZD;New Zealand CPI (Q3)
 EVENT;2026.10.22 23:30;JPY;Japan national CPI (Sep)
