@@ -1,14 +1,14 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-10-19 | Reviewed 2026-10-22 05:58 UTC (daily review)
+# Week of 2026-10-19 | Reviewed 2026-10-23 05:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
 #   GBP +2  UK CPI 3.5% beat (21 Oct) after strong jobs, November BoE hike near certain, GBP/USD one-month high 1.3409
 #   USD +1  Fed still in a hiking cycle with CPI 3.7% and PPI hot, but Warsh gave no steer and yields fell, DXY -0.5% last week
 #   CHF  0  Safe-haven bid on tech selloff and Gulf risk offsets a dovish SNB at 0%
 #   CAD  0  Oil above 100 dollars and USD/CAD -0.9% last week, but September jobs -68k keep BoC cut talk alive
 #   EUR -1  French 10-year yield above 5% (highest since 2022) amid unrest, energy stagflation, ECB to hold next week
-#   JPY -1  BoJ unlikely to hike in October, oil above 100 hurts Japan, but 159-160 intervention line caps USD/JPY
+#   JPY -1  Core-core CPI 2.4% beat (23 Oct), December BoJ hike expected, USD/JPY ~157 with intervention line at 159-160
 #   NZD -1  Oil importer hurt by Brent near 110, offset by RBNZ hike pricing ahead of NZ Q3 CPI
-#   AUD -1  Was -2 on weak jobs, but RBA Deputy Hauser (21 Oct) called the inflation outlook materially worse, November hike odds up to ~41-45%
+#   AUD -1  Hauser (21 Oct) revived RBA hike talk, but flash composite PMI fell to 47.7 (23 Oct), first contraction in five months
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
 BIAS;EURGBP;SELL;2;2026.10.23 20:00
@@ -17,7 +17,6 @@ BIAS;AUDUSD;NONE;0;2026.10.23 20:00
 BIAS;USDJPY;NONE;0;2026.10.23 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.10.22 23:30;JPY;Japan national CPI (Sep)
 EVENT;2026.10.23 06:00;GBP;UK retail sales (Sep)
 EVENT;2026.10.23 07:30;EUR;Germany flash PMIs (Oct)
 EVENT;2026.10.23 08:00;EUR;Eurozone flash PMIs (Oct)
