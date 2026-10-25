@@ -1,24 +1,32 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-10-19 | Reviewed 2026-10-23 05:58 UTC (daily review)
+# Week of 2026-10-26 | Generated 2026-10-25 19:05 UTC (weekly rebuild)
 # Scorecard (-2 weakest .. +2 strongest):
-#   GBP +2  UK CPI 3.5% beat (21 Oct) after strong jobs, November BoE hike near certain, GBP/USD one-month high 1.3409
-#   USD +1  Fed still in a hiking cycle with CPI 3.7% and PPI hot, but Warsh gave no steer and yields fell, DXY -0.5% last week
-#   CHF  0  Safe-haven bid on tech selloff and Gulf risk offsets a dovish SNB at 0%
-#   CAD  0  Oil above 100 dollars and USD/CAD -0.9% last week, but September jobs -68k keep BoC cut talk alive
-#   EUR -1  French 10-year yield above 5% (highest since 2022) amid unrest, energy stagflation, ECB to hold next week
-#   JPY -1  Core-core CPI 2.4% beat (23 Oct), December BoJ hike expected, USD/JPY ~157 with intervention line at 159-160
-#   NZD -1  Oil importer hurt by Brent near 110, offset by RBNZ hike pricing ahead of NZ Q3 CPI
-#   AUD -1  Hauser (21 Oct) revived RBA hike talk, but flash composite PMI fell to 47.7 (23 Oct), first contraction in five months
+#   GBP +2  UK CPI 3.5% and strong jobs make a 5 Nov BoE hike near certain, GBP/USD above 1.34; budget on Wed is the risk
+#   USD +1  Fed expected to hold Wed with a December hike bias, Q3 GDP seen ~3%, but DXY down two weeks as yields fell
+#   CAD +1  BoC hike ~80% priced for Wed, oil above 100 dollars on Iran and Saudi attacks
+#   CHF  0  Safe-haven demand from Iran escalation and AI-stock jitters, offset by SNB at 0%
+#   JPY  0  USD/JPY at five-week low near 156 on risk-off, BoJ to hold Fri with December hike ~80% priced
+#   AUD  0  Led the majors last week (AUD/USD 0.7035) on revived RBA hike talk, Q3 CPI Wed decides it
+#   NZD -1  RBNZ hike Wed is ~80% priced already, Q3 CPI undershot, oil importer
+#   EUR -1  France 10y above 5%, energy stagflation, ECB to hold Thu, EUR/USD down ~6 figures since summer; record shorts risk a squeeze
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
-BIAS;EURGBP;SELL;2;2026.10.23 20:00
-BIAS;GBPAUD;BUY;1;2026.10.23 20:00
-BIAS;AUDUSD;NONE;0;2026.10.23 20:00
-BIAS;USDJPY;NONE;0;2026.10.23 20:00
+BIAS;EURGBP;SELL;2;2026.10.30 20:00
+BIAS;EURUSD;SELL;1;2026.10.30 20:00
+BIAS;GBPAUD;NONE;0;2026.10.30 20:00
+BIAS;USDJPY;NONE;0;2026.10.30 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.10.23 06:00;GBP;UK retail sales (Sep)
-EVENT;2026.10.23 07:30;EUR;Germany flash PMIs (Oct)
-EVENT;2026.10.23 08:00;EUR;Eurozone flash PMIs (Oct)
-EVENT;2026.10.23 08:30;GBP;UK flash PMIs (Oct)
-EVENT;2026.10.23 13:45;USD;US flash PMIs (Oct)
+EVENT;2026.10.28 00:30;AUD;Australia CPI (Q3 and Sep)
+EVENT;2026.10.28 01:00;NZD;RBNZ rate decision
+EVENT;2026.10.28 12:30;GBP;UK Autumn Budget statement begins
+EVENT;2026.10.28 13:30;GBP;UK Autumn Budget statement continues
+EVENT;2026.10.28 13:45;CAD;BoC rate decision
+EVENT;2026.10.28 18:00;USD;Fed rate decision
+EVENT;2026.10.28 18:30;USD;Fed press conference
+EVENT;2026.10.29 12:30;USD;US Q3 GDP and September PCE
+EVENT;2026.10.29 13:15;EUR;ECB rate decision
+EVENT;2026.10.29 13:45;EUR;ECB press conference
+EVENT;2026.10.29 23:30;JPY;Tokyo CPI (Oct)
+EVENT;2026.10.30 03:00;JPY;BoJ rate decision (approx time)
+EVENT;2026.10.30 10:00;EUR;Eurozone Q3 GDP flash

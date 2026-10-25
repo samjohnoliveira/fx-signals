@@ -2,6 +2,8 @@ week_start,symbol,bias,conviction,start_price,start_source,end_price,change_pips
 2026-10-12,EURUSD,SELL,2,1.1209,dailyforex.com 12 Oct,1.1236,-27,LOSS
 2026-10-12,NZDUSD,SELL,2,0.5600,fxstreet.com 12 Oct,0.5652,-52,LOSS
 2026-10-12,EURGBP,SELL,1,0.8447,fxstreet.com 12 Oct,0.8432,15,WIN
-2026-10-19,EURGBP,SELL,2,0.8432,currencynews.co.uk 16 Oct close,,,
-2026-10-19,GBPAUD,BUY,2,1.9190,poundsterlinglive.com 16 Oct close,,,
-2026-10-19,AUDUSD,SELL,1,0.6946,sharetrader.com.au 16 Oct close (downgraded 2026-10-20),,,
+2026-10-19,EURGBP,SELL,2,0.8432,currencynews.co.uk 16 Oct close,0.8375,57,WIN
+2026-10-19,GBPAUD,BUY,2,1.9190,poundsterlinglive.com 16 Oct close,1.9013,-177,LOSS
+2026-10-19,AUDUSD,SELL,1,0.6946,sharetrader.com.au 16 Oct close (downgraded 2026-10-20),0.7035,-89,LOSS
+2026-10-26,EURGBP,SELL,2,0.8375,poundsterlinglive.com 23 Oct (GBP/EUR 1.1940),,,
+2026-10-26,EURUSD,SELL,1,1.1200,fxstreet.com 23 Oct close,,,
