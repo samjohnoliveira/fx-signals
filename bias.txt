@@ -1,13 +1,13 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-10-26 | Generated 2026-10-25 19:05 UTC (weekly rebuild)
+# Week of 2026-10-26 | Reviewed 2026-10-28 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
 #   GBP +2  UK CPI 3.5% and strong jobs make a 5 Nov BoE hike near certain, GBP/USD above 1.34; budget on Wed is the risk
 #   USD +1  Fed expected to hold Wed with a December hike bias, Q3 GDP seen ~3%, but DXY down two weeks as yields fell
 #   CAD +1  BoC hike ~80% priced for Wed, oil above 100 dollars on Iran and Saudi attacks
 #   CHF  0  Safe-haven demand from Iran escalation and AI-stock jitters, offset by SNB at 0%
 #   JPY  0  USD/JPY at five-week low near 156 on risk-off, BoJ to hold Fri with December hike ~80% priced
-#   AUD  0  Led the majors last week (AUD/USD 0.7035) on revived RBA hike talk, Q3 CPI Wed decides it
-#   NZD -1  RBNZ hike Wed is ~80% priced already, Q3 CPI undershot, oil importer
+#   AUD +1  Trimmed-mean CPI 3.7% beat (28 Oct), Bullock says inflation far too high, 3 Nov RBA hike now ~90% priced
+#   NZD -2  RBNZ surprise 4-3 hold at 2.75% (28 Oct) vs ~90% hike priced, kiwi fell sharply
 #   EUR -1  France 10y above 5%, energy stagflation, ECB to hold Thu, EUR/USD down ~6 figures since summer; record shorts risk a squeeze
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
@@ -17,8 +17,6 @@ BIAS;GBPAUD;NONE;0;2026.10.30 20:00
 BIAS;USDJPY;NONE;0;2026.10.30 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.10.28 00:30;AUD;Australia CPI (Q3 and Sep)
-EVENT;2026.10.28 01:00;NZD;RBNZ rate decision
 EVENT;2026.10.28 12:30;GBP;UK Autumn Budget statement begins
 EVENT;2026.10.28 13:30;GBP;UK Autumn Budget statement continues
 EVENT;2026.10.28 13:45;CAD;BoC rate decision
