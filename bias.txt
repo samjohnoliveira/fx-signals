@@ -1,20 +1,27 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-10-26 | Reviewed 2026-10-30 06:58 UTC (daily review)
+# Week of 2026-11-02 | Generated 2026-11-01 19:10 UTC (weekly rebuild)
 # Scorecard (-2 weakest .. +2 strongest):
-#   GBP +2  Budget (28 Oct) met expectations, gilts steady, November BoE hike still expected, EUR/GBP ~0.837
-#   USD +1  Fed held 10-2 (28 Oct), economy at a strong pace, December hike ~78% priced, Warsh gave no steer
-#   CAD +1  BoC hiked (28 Oct), first rise in over three years, said more may be needed
-#   CHF  0  Safe-haven demand from Iran escalation and AI-stock jitters, offset by SNB at 0%
-#   JPY  0  BoJ held at 1.25% (30 Oct) but raised inflation forecasts and signalled more hikes, USD/JPY back to ~157
-#   AUD +1  Trimmed-mean CPI 3.7% beat (28 Oct), Bullock says inflation far too high, 3 Nov RBA hike now ~90% priced
-#   NZD -2  RBNZ surprise 4-3 hold at 2.75% (28 Oct) vs ~90% hike priced, kiwi fell sharply
-#   EUR -1  ECB held at 2.5% (29 Oct), Lagarde to leave early in February, PMI at four-month low, EUR/USD hit lowest since May 2025 then bounced to ~1.12
+#   USD +1  Fed held 10-2 with two hike dissents, December hike ~80% priced, payrolls Fri decide it; midterms Tue and Iran strikes are wildcards
+#   GBP +1  BoE hike to 4.00% expected Thu after 3.5% CPI and calm budget, but largely priced so further gains look limited
+#   CAD +1  BoC hiked to 2.50% (28 Oct), oil near 113 dollars
+#   AUD +1  RBA hike to 4.85% Tue ~80-90% priced after hot Q3 CPI, AUD/USD near five-week high ~0.707
+#   JPY  0  BoJ held 8-1 with one hike dissent, yen bid on risk-off, but USD/JPY still ~157.6
+#   CHF  0  Safe haven, USD/CHF flat at 0.825, Swiss CPI Tue
+#   EUR -2  EUR/USD at lowest since May 2025 (1.1157), ECB could not capitalise on a hawkish hold, Lagarde exit, French spreads
+#   NZD -2  RBNZ surprise hold (28 Oct) vs fully priced hike, NZD/USD near 0.56, AUD/NZD at 13-year high
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
-BIAS;EURGBP;SELL;2;2026.10.30 20:00
-BIAS;EURUSD;SELL;1;2026.10.30 20:00
-BIAS;GBPAUD;NONE;0;2026.10.30 20:00
-BIAS;USDJPY;NONE;0;2026.10.30 20:00
+BIAS;EURUSD;SELL;2;2026.11.06 20:00
+BIAS;EURGBP;SELL;1;2026.11.06 20:00
+BIAS;AUDNZD;BUY;1;2026.11.06 20:00
+BIAS;USDJPY;NONE;0;2026.11.06 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.10.30 10:00;EUR;Eurozone Q3 GDP flash
+EVENT;2026.11.02 15:00;USD;US ISM manufacturing (Oct)
+EVENT;2026.11.03 03:30;AUD;RBA rate decision
+EVENT;2026.11.04 10:00;EUR;Eurozone flash CPI (Oct)
+EVENT;2026.11.04 15:00;USD;US ISM services (Oct)
+EVENT;2026.11.05 12:00;GBP;BoE rate decision and Monetary Policy Report
+EVENT;2026.11.05 12:30;GBP;BoE Governor Bailey press conference
+EVENT;2026.11.05 18:00;EUR;ECB President Lagarde speaks
+EVENT;2026.11.06 13:30;USD;US nonfarm payrolls (Oct)
