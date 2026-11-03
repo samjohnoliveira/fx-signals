@@ -33,6 +33,9 @@ input int             InpSwingBars        = 10;         // Bars back to find the
 input double          InpStopBufferATR    = 0.2;        // Extra room beyond the swing, x ATR
 input double          InpMinStopATR       = 1.0;        // Minimum stop distance, x ATR
 input double          InpMaxStopATR       = 3.0;        // Skip trade if stop would be wider than this, x ATR
+input double          InpMinStopPips      = 10.0;       // Minimum stop distance in pips, whatever the ATR
+input double          InpMinStopSpreads   = 4.0;        // Minimum stop distance as a multiple of the current spread
+input double          InpMaxLots          = 5.0;        // Never open more than this many lots in one trade
 input double          InpRewardRisk       = 2.0;        // Target as a multiple of risk
 input double          InpBreakevenAtR     = 1.0;        // Move stop to entry after this many R in profit (0 = off)
 input double          InpRiskPercent      = 1.0;        // Risk per trade, % of balance
@@ -311,23 +314,29 @@ void TryEntry(string baseSym, int dir)
    double point  = SymbolInfoDouble(s, SYMBOL_POINT);
    double price  = (dir > 0) ? tick.ask : tick.bid;
 
+   // Minimum stop: the largest of the ATR floor, a fixed pip floor and a multiple of the spread,
+   // so quiet pairs like EURGBP never get a stop inside normal noise (and a huge lot size).
+   double pip     = (digits == 3 || digits == 5) ? point * 10.0 : point;
+   double spread  = tick.ask - tick.bid;
+   double minStop = MathMax(InpMinStopATR * atr[0], MathMax(InpMinStopPips * pip, InpMinStopSpreads * spread));
+
    double sl;
    if(dir > 0)
      {
       int idx = iLowest(s, InpEntryTF, MODE_LOW, InpSwingBars, 1);
       if(idx < 0) return;
       sl = iLow(s, InpEntryTF, idx) - InpStopBufferATR * atr[0];
-      if(price - sl < InpMinStopATR * atr[0]) sl = price - InpMinStopATR * atr[0];
+      if(price - sl < minStop) sl = price - minStop;
      }
    else
      {
       int idx = iHighest(s, InpEntryTF, MODE_HIGH, InpSwingBars, 1);
       if(idx < 0) return;
       sl = iHigh(s, InpEntryTF, idx) + InpStopBufferATR * atr[0];
-      if(sl - price < InpMinStopATR * atr[0]) sl = price + InpMinStopATR * atr[0];
+      if(sl - price < minStop) sl = price + minStop;
      }
    double risk = MathAbs(price - sl);
-   if(risk > InpMaxStopATR * atr[0])
+   if(risk > MathMax(InpMaxStopATR * atr[0], minStop * 1.5))
      {
       Print("NewsBiasEA: ", baseSym, " setup skipped, stop wider than ", DoubleToString(InpMaxStopATR, 1), " ATR");
       return;
@@ -482,6 +491,7 @@ double CalcLots(string symbol, bool isBuy, double entry, double sl)
    double maxV = SymbolInfoDouble(symbol, SYMBOL_VOLUME_MAX);
    double lots = MathFloor(riskMoney / lossPerLot / step) * step;
    if(lots < minV) return(0);
+   lots = MathMin(lots, MathFloor(InpMaxLots / step) * step);
    return(MathMin(lots, maxV));
   }
 
