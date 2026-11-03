@@ -1,24 +1,22 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-02 | Generated 2026-11-01 19:10 UTC (weekly rebuild)
+# Week of 2026-11-02 | Reviewed 2026-11-03 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
-#   USD +1  Fed held 10-2 with two hike dissents, December hike ~80% priced, payrolls Fri decide it; midterms Tue and Iran strikes are wildcards
+#   USD +1  December Fed hike still ~80% priced, but dollar sold ahead of midterms (DXY ~101.4) as oil and yields fell, payrolls Fri
 #   GBP +1  BoE hike to 4.00% expected Thu after 3.5% CPI and calm budget, but largely priced so further gains look limited
 #   CAD +1  BoC hiked to 2.50% (28 Oct), oil near 113 dollars
-#   AUD +1  RBA hike to 4.85% Tue ~80-90% priced after hot Q3 CPI, AUD/USD near five-week high ~0.707
+#   AUD +1  RBA hiked to 4.85% (3 Nov), highest since 2008, door open to more, but 6-3 split
 #   JPY  0  BoJ held 8-1 with one hike dissent, yen bid on risk-off, but USD/JPY still ~157.6
 #   CHF  0  Safe haven, USD/CHF flat at 0.825, Swiss CPI Tue
-#   EUR -2  EUR/USD at lowest since May 2025 (1.1157), ECB could not capitalise on a hawkish hold, Lagarde exit, French spreads
+#   EUR -2  France credit outlook downgrade reports, German gas storage short, but EUR/USD bounced to ~1.1237 on dollar selling
 #   NZD -2  RBNZ surprise hold (28 Oct) vs fully priced hike, NZD/USD near 0.56, AUD/NZD at 13-year high
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
-BIAS;EURUSD;SELL;2;2026.11.06 20:00
+BIAS;EURUSD;SELL;1;2026.11.06 20:00
 BIAS;EURGBP;SELL;1;2026.11.06 20:00
 BIAS;AUDNZD;BUY;1;2026.11.06 20:00
 BIAS;USDJPY;NONE;0;2026.11.06 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.02 15:00;USD;US ISM manufacturing (Oct)
-EVENT;2026.11.03 03:30;AUD;RBA rate decision
 EVENT;2026.11.04 10:00;EUR;Eurozone flash CPI (Oct)
 EVENT;2026.11.04 15:00;USD;US ISM services (Oct)
 EVENT;2026.11.05 12:00;GBP;BoE rate decision and Monetary Policy Report
