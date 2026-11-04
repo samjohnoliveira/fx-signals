@@ -1,17 +1,17 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-02 | Reviewed 2026-11-03 06:58 UTC (daily review)
+# Week of 2026-11-02 | Reviewed 2026-11-04 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
-#   USD +1  December Fed hike still ~80% priced, but dollar sold ahead of midterms (DXY ~101.4) as oil and yields fell, payrolls Fri
+#   USD  0  Dollar fell on early US midterm results (DXY ~101.4, 10y 4.91%), outcome still uncertain, payrolls Fri
 #   GBP +1  BoE hike to 4.00% expected Thu after 3.5% CPI and calm budget, but largely priced so further gains look limited
 #   CAD +1  BoC hiked to 2.50% (28 Oct), oil near 113 dollars
-#   AUD +1  RBA hiked to 4.85% (3 Nov), highest since 2008, door open to more, but 6-3 split
+#   AUD +1  RBA hiked to 4.85% but Bullock tone read as dovish, AUD/USD ~0.70
 #   JPY  0  BoJ held 8-1 with one hike dissent, yen bid on risk-off, but USD/JPY still ~157.6
 #   CHF  0  Safe haven, USD/CHF flat at 0.825, Swiss CPI Tue
 #   EUR -2  France credit outlook downgrade reports, German gas storage short, but EUR/USD bounced to ~1.1237 on dollar selling
-#   NZD -2  RBNZ surprise hold (28 Oct) vs fully priced hike, NZD/USD near 0.56, AUD/NZD at 13-year high
+#   NZD -2  Weak Q3 jobs report (4 Nov), unemployment above forecast, December RBNZ hike bets pared
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
-BIAS;EURUSD;SELL;1;2026.11.06 20:00
+BIAS;EURUSD;NONE;0;2026.11.06 20:00
 BIAS;EURGBP;SELL;1;2026.11.06 20:00
 BIAS;AUDNZD;BUY;1;2026.11.06 20:00
 BIAS;USDJPY;NONE;0;2026.11.06 20:00
