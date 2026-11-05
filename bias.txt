@@ -1,24 +1,22 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-02 | Reviewed 2026-11-04 06:58 UTC (daily review)
+# Week of 2026-11-02 | Reviewed 2026-11-05 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
-#   USD  0  Dollar fell on early US midterm results (DXY ~101.4, 10y 4.91%), outcome still uncertain, payrolls Fri
-#   GBP +1  BoE hike to 4.00% expected Thu after 3.5% CPI and calm budget, but largely priced so further gains look limited
+#   USD  0  Dollar eased as midterms unwound some risk premium, ADP 86k beat, December Fed hike still ~80% priced
+#   GBP +1  BoE hike to 4% today fully priced, previews see a 7-2 vote and cautious guidance as the likeliest, softer-pound path
 #   CAD +1  BoC hiked to 2.50% (28 Oct), oil near 113 dollars
 #   AUD +1  RBA hiked to 4.85% but Bullock tone read as dovish, AUD/USD ~0.70
 #   JPY  0  BoJ held 8-1 with one hike dissent, yen bid on risk-off, but USD/JPY still ~157.6
 #   CHF  0  Safe haven, USD/CHF flat at 0.825, Swiss CPI Tue
-#   EUR -2  France credit outlook downgrade reports, German gas storage short, but EUR/USD bounced to ~1.1237 on dollar selling
+#   EUR -1  Eurozone October CPI hit 4.0% (4 Nov), first time in three years, ECB hike now seen looming, EUR/USD ~1.124
 #   NZD -2  Weak Q3 jobs report (4 Nov), unemployment above forecast, December RBNZ hike bets pared
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
 BIAS;EURUSD;NONE;0;2026.11.06 20:00
-BIAS;EURGBP;SELL;1;2026.11.06 20:00
+BIAS;EURGBP;NONE;0;2026.11.06 20:00
 BIAS;AUDNZD;BUY;1;2026.11.06 20:00
 BIAS;USDJPY;NONE;0;2026.11.06 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.04 10:00;EUR;Eurozone flash CPI (Oct)
-EVENT;2026.11.04 15:00;USD;US ISM services (Oct)
 EVENT;2026.11.05 12:00;GBP;BoE rate decision and Monetary Policy Report
 EVENT;2026.11.05 12:30;GBP;BoE Governor Bailey press conference
 EVENT;2026.11.05 18:00;EUR;ECB President Lagarde speaks
