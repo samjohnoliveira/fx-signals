@@ -1,8 +1,8 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-02 | Reviewed 2026-11-05 06:58 UTC (daily review)
+# Week of 2026-11-02 | Reviewed 2026-11-06 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
 #   USD  0  Dollar eased as midterms unwound some risk premium, ADP 86k beat, December Fed hike still ~80% priced
-#   GBP +1  BoE hike to 4% today fully priced, previews see a 7-2 vote and cautious guidance as the likeliest, softer-pound path
+#   GBP +1  BoE hiked to 4% (5 Nov) as expected, December hike left in play, pound little changed
 #   CAD +1  BoC hiked to 2.50% (28 Oct), oil near 113 dollars
 #   AUD +1  RBA hiked to 4.85% but Bullock tone read as dovish, AUD/USD ~0.70
 #   JPY  0  BoJ held 8-1 with one hike dissent, yen bid on risk-off, but USD/JPY still ~157.6
@@ -17,7 +17,4 @@ BIAS;AUDNZD;BUY;1;2026.11.06 20:00
 BIAS;USDJPY;NONE;0;2026.11.06 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.05 12:00;GBP;BoE rate decision and Monetary Policy Report
-EVENT;2026.11.05 12:30;GBP;BoE Governor Bailey press conference
-EVENT;2026.11.05 18:00;EUR;ECB President Lagarde speaks
 EVENT;2026.11.06 13:30;USD;US nonfarm payrolls (Oct)
