@@ -1,20 +1,22 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-02 | Reviewed 2026-11-06 06:58 UTC (daily review)
+# Week of 2026-11-09 | Generated 2026-11-08 19:20 UTC (weekly rebuild)
 # Scorecard (-2 weakest .. +2 strongest):
-#   USD  0  Dollar eased as midterms unwound some risk premium, ADP 86k beat, December Fed hike still ~80% priced
-#   GBP +1  BoE hiked to 4% (5 Nov) as expected, December hike left in play, pound little changed
-#   CAD +1  BoC hiked to 2.50% (28 Oct), oil near 113 dollars
-#   AUD +1  RBA hiked to 4.85% but Bullock tone read as dovish, AUD/USD ~0.70
-#   JPY  0  BoJ held 8-1 with one hike dissent, yen bid on risk-off, but USD/JPY still ~157.6
-#   CHF  0  Safe haven, USD/CHF flat at 0.825, Swiss CPI Tue
-#   EUR -1  Eurozone October CPI hit 4.0% (4 Nov), first time in three years, ECB hike now seen looming, EUR/USD ~1.124
-#   NZD -2  Weak Q3 jobs report (4 Nov), unemployment above forecast, December RBNZ hike bets pared
+#   USD +2  Payrolls 165k vs ~65k (6 Nov), unemployment 4.1%, wages firm, December Fed hike ~78% priced, DXY back to 102.2; CPI Tue
+#   CHF  0  Safe-haven support from the AI selloff and Hormuz incidents, SNB on hold
+#   JPY  0  Ueda says further tightening warranted, but USD/JPY 158.3 near the intervention zone
+#   GBP  0  BoE hiked unanimously to 4%, next move December or February, Q3 GDP Thu seen flat, GBP/USD 1.336
+#   CAD  0  BoC hiked but October jobs fell 5k, Brent down 13.6% on the week
+#   EUR -1  Sold after payrolls (EUR/USD 1.114), Lagarde exit and French spreads, offset by 4% CPI and a looming ECB hike
+#   AUD -1  Six-month low ~0.686 on the AI-led equity selloff, RBA dropped guidance after a 6-3 hike, December pause possible
+#   NZD -2  18-month low ~0.555, weak jobs, split RBNZ hold, election too close to call until the 27 Nov final count
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
-BIAS;EURUSD;NONE;0;2026.11.06 20:00
-BIAS;EURGBP;NONE;0;2026.11.06 20:00
-BIAS;AUDNZD;BUY;1;2026.11.06 20:00
-BIAS;USDJPY;NONE;0;2026.11.06 20:00
+BIAS;NZDUSD;SELL;2;2026.11.13 20:00
+BIAS;AUDUSD;SELL;1;2026.11.13 20:00
+BIAS;USDJPY;NONE;0;2026.11.13 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.06 13:30;USD;US nonfarm payrolls (Oct)
+EVENT;2026.11.09 01:30;AUD;China CPI and PPI (Oct)
+EVENT;2026.11.09 01:30;NZD;China CPI and PPI (Oct)
+EVENT;2026.11.10 13:30;USD;US CPI (Oct)
+EVENT;2026.11.13 13:30;USD;US PPI (Oct)
