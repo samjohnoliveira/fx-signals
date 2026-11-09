@@ -1,5 +1,5 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-09 | Generated 2026-11-08 19:20 UTC (weekly rebuild)
+# Week of 2026-11-09 | Reviewed 2026-11-09 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
 #   USD +2  Payrolls 165k vs ~65k (6 Nov), unemployment 4.1%, wages firm, December Fed hike ~78% priced, DXY back to 102.2; CPI Tue
 #   CHF  0  Safe-haven support from the AI selloff and Hormuz incidents, SNB on hold
@@ -8,7 +8,7 @@
 #   CAD  0  BoC hiked but October jobs fell 5k, Brent down 13.6% on the week
 #   EUR -1  Sold after payrolls (EUR/USD 1.114), Lagarde exit and French spreads, offset by 4% CPI and a looming ECB hike
 #   AUD -1  Six-month low ~0.686 on the AI-led equity selloff, RBA dropped guidance after a 6-3 hike, December pause possible
-#   NZD -2  18-month low ~0.555, weak jobs, split RBNZ hold, election too close to call until the 27 Nov final count
+#   NZD -2  Small relief bounce above 0.555 as the incumbent coalition led the preliminary count, but final result not until 27 Nov, weak jobs, split RBNZ
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
 BIAS;NZDUSD;SELL;2;2026.11.13 20:00
@@ -16,7 +16,5 @@ BIAS;AUDUSD;SELL;1;2026.11.13 20:00
 BIAS;USDJPY;NONE;0;2026.11.13 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.09 01:30;AUD;China CPI and PPI (Oct)
-EVENT;2026.11.09 01:30;NZD;China CPI and PPI (Oct)
 EVENT;2026.11.10 13:30;USD;US CPI (Oct)
 EVENT;2026.11.13 13:30;USD;US PPI (Oct)
