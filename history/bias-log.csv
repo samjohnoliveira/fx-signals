@@ -11,4 +11,4 @@ week_start,symbol,bias,conviction,start_price,start_source,end_price,change_pips
 2026-11-02,EURGBP,SELL,1,0.8334,EURUSD/GBPUSD closes 30 Oct (capitalstreetfx.com) (downgraded 2026-11-05),0.8344,-10,FLAT
 2026-11-02,AUDNZD,BUY,1,1.2602,brecorder.com 29 Oct,1.2377,-225,LOSS
 2026-11-09,NZDUSD,SELL,2,0.5546,tradingeconomics.com 6 Nov,,,
-2026-11-09,AUDUSD,SELL,1,0.6864,tradingeconomics.com 6 Nov,,,
+2026-11-09,AUDUSD,SELL,1,0.6864,tradingeconomics.com 6 Nov (downgraded 2026-11-10),,,
