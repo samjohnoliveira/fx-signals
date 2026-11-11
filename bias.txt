@@ -1,7 +1,7 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-09 | Reviewed 2026-11-10 06:58 UTC (daily review)
+# Week of 2026-11-09 | Reviewed 2026-11-11 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
-#   USD +2  Payrolls 165k vs ~65k (6 Nov), unemployment 4.1%, wages firm, December Fed hike ~78% priced, DXY back to 102.2; CPI Tue
+#   USD +2  October CPI 0.4% m/m vs 0.3% (10 Nov), core 0.3% hot, December Fed hike fully priced with 50bp odds rising, 2y yields up
 #   CHF  0  Safe-haven support from the AI selloff and Hormuz incidents, SNB on hold
 #   JPY  0  Ueda says further tightening warranted, but USD/JPY 158.3 near the intervention zone
 #   GBP  0  BoE hiked unanimously to 4%, next move December or February, Q3 GDP Thu seen flat, GBP/USD 1.336
@@ -16,5 +16,4 @@ BIAS;AUDUSD;NONE;0;2026.11.13 20:00
 BIAS;USDJPY;NONE;0;2026.11.13 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.10 13:30;USD;US CPI (Oct)
 EVENT;2026.11.13 13:30;USD;US PPI (Oct)
