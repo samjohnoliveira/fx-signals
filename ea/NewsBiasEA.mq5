@@ -17,7 +17,7 @@
 //|        time (UTC); currency (or ALL); description                |
 //+------------------------------------------------------------------+
 #property copyright "Generated for personal use"
-#property version   "1.00"
+#property version   "1.10"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -36,9 +36,18 @@ input double          InpMaxStopATR       = 3.0;        // Skip trade if stop wo
 input double          InpMinStopPips      = 10.0;       // Minimum stop distance in pips, whatever the ATR
 input double          InpMinStopSpreads   = 4.0;        // Minimum stop distance as a multiple of the current spread
 input double          InpMaxLots          = 5.0;        // Never open more than this many lots in one trade
+input bool            InpUseEfficiency    = true;       // Chop filter: skip if price has been going nowhere
+input int             InpERBars           = 24;         // Bars for the efficiency ratio (entry timeframe)
+input double          InpMinER            = 0.30;       // Minimum efficiency ratio (0 = pure chop, 1 = straight line)
+input bool            InpUseAlignment     = true;       // Require fast EMA on the right side of a sloping slow EMA
+input int             InpSlowEMA          = 50;         // Slow EMA period on the entry timeframe
+input int             InpSlopeBars        = 5;          // Bars over which the slow EMA must slope in the bias direction
+input bool            InpUseLossPause     = true;       // Stop trading a pair after consecutive losses this week
+input int             InpMaxConsecLosses  = 2;          // Losses in a row that pause a pair until next week
+input bool            InpLogDecisions     = true;       // Print one line per pair per bar explaining the decision
 input double          InpRewardRisk       = 2.0;        // Target as a multiple of risk
 input double          InpBreakevenAtR     = 1.0;        // Move stop to entry after this many R in profit (0 = off)
-input double          InpRiskPercent      = 1.0;        // Risk per trade, % of balance
+input double          InpRiskPercent      = 0.5;        // Risk per trade, % of balance
 input int             InpMaxOpenTrades    = 3;          // Max open positions from this EA
 input double          InpDailyLossCapPct  = 3.0;        // No new trades after losing this % in a day
 input int             InpMaxSpreadPts     = 25;         // Skip entry if spread is wider (points)
@@ -65,7 +74,7 @@ bool     isTester    = false;
 
 // per-symbol caches
 string   cSym[];
-int      cEmaE[], cEmaT[], cAtr[];
+int      cEmaE[], cEmaT[], cAtr[], cEmaS[];
 datetime cLastBar[];
 
 //+------------------------------------------------------------------+
@@ -103,6 +112,7 @@ void OnDeinit(const int reason)
       if(cEmaE[i] != INVALID_HANDLE) IndicatorRelease(cEmaE[i]);
       if(cEmaT[i] != INVALID_HANDLE) IndicatorRelease(cEmaT[i]);
       if(cAtr[i]  != INVALID_HANDLE) IndicatorRelease(cAtr[i]);
+      if(cEmaS[i] != INVALID_HANDLE) IndicatorRelease(cEmaS[i]);
      }
   }
 
@@ -281,13 +291,20 @@ void TryEntry(string baseSym, int dir)
    double trendClose = iClose(s, InpTrendTF, 1);
    if(o1 <= 0 || c1 <= 0 || trendClose <= 0 || atr[0] <= 0) return;
 
+   // Slow EMA (for alignment) and closes (for the efficiency ratio)
+   double emaS[];
+   if(CopyBuffer(cEmaS[c], 0, 1, InpSlopeBars + 1, emaS) != InpSlopeBars + 1) return;   // [0] = oldest, [last] = bar 1
+   double closes[];
+   if(CopyClose(s, InpEntryTF, 1, InpERBars + 1, closes) != InpERBars + 1) return;      // [0] = oldest, [last] = bar 1
+
    cLastBar[c] = barTime;   // this bar has now been evaluated
+   string when = TimeToString(barTime + PeriodSeconds(InpEntryTF), TIME_DATE | TIME_MINUTES);
 
    // --- Filters that don't depend on the setup
-   if(!TradingWindowOpen())                          return;
-   if(HasPosition(s))                                return;
-   if(TradedToday(s))                                return;
-   if(CountOpen() >= InpMaxOpenTrades)               return;
+   if(!TradingWindowOpen())                          { Decision(baseSym, when, "outside trading hours"); return; }
+   if(HasPosition(s))                                { Decision(baseSym, when, "already in a trade"); return; }
+   if(TradedToday(s))                                { Decision(baseSym, when, "already traded today"); return; }
+   if(CountOpen() >= InpMaxOpenTrades)               { Decision(baseSym, when, "max open trades reached"); return; }
    if(DailyLossHit())                                { Print("NewsBiasEA: daily loss cap reached, no new trades"); return; }
    if(!isTester && InBlackout(baseSym))              { Print("NewsBiasEA: ", baseSym, " skipped, high-impact news window"); return; }
    if(SymbolInfoInteger(s, SYMBOL_SPREAD) > InpMaxSpreadPts) { Print("NewsBiasEA: ", baseSym, " skipped, spread too wide"); return; }
@@ -298,14 +315,40 @@ void TryEntry(string baseSym, int dir)
       return;
      }
 
-   // --- Trend filter: higher timeframe agrees with the bias
-   if(dir > 0 && !(trendClose > emaT[0])) return;
-   if(dir < 0 && !(trendClose < emaT[0])) return;
+   // --- Checklist (all evaluated, so the log shows every reason)
+   // 1. Higher-timeframe trend agrees with the bias
+   bool trendOK = (dir > 0) ? (trendClose > emaT[0]) : (trendClose < emaT[0]);
 
-   // --- Pullback trigger: last bar tagged the EMA and closed back in the bias direction
+   // 2. Efficiency ratio: net move / total path over the last InpERBars bars
+   double path = 0;
+   for(int i = 1; i <= InpERBars; i++) path += MathAbs(closes[i] - closes[i - 1]);
+   double er = (path > 0) ? MathAbs(closes[InpERBars] - closes[0]) / path : 0;
+   bool erOK = !InpUseEfficiency || er >= InpMinER;
+
+   // 3. Alignment: fast EMA beyond slow EMA, slow EMA sloping the bias way
+   double slowNow = emaS[InpSlopeBars], slowThen = emaS[0];
+   bool alignOK = !InpUseAlignment ||
+                  ((dir > 0) ? (emaE[0] > slowNow && slowNow > slowThen)
+                             : (emaE[0] < slowNow && slowNow < slowThen));
+
+   // 4. Pullback trigger: last bar tagged the fast EMA and closed back in the bias direction
    bool trigger = (dir > 0) ? (l1 <= emaE[0] && c1 > emaE[0] && c1 > o1)
                             : (h1 >= emaE[0] && c1 < emaE[0] && c1 < o1);
-   if(!trigger) return;
+
+   // 5. Loss pause: consecutive losses on this pair this week
+   int streak = LossStreakThisWeek(s);
+   bool pauseOK = !InpUseLossPause || streak < InpMaxConsecLosses;
+
+   bool go = trendOK && erOK && alignOK && trigger && pauseOK;
+   string why = StringFormat("trend %s | ER %.2f %s | align %s | trigger %s | losses %d/%d %s -> %s",
+                             trendOK ? "OK" : "FAIL",
+                             er, InpUseEfficiency ? (erOK ? "OK" : "FAIL") : "(off)",
+                             InpUseAlignment ? (alignOK ? "OK" : "FAIL") : "(off)",
+                             trigger ? "yes" : "no",
+                             streak, InpMaxConsecLosses, InpUseLossPause ? (pauseOK ? "OK" : "PAUSED") : "(off)",
+                             go ? "ENTER" : "no trade");
+   Decision(baseSym, when, why);
+   if(!go) return;
 
    // --- Stop, target, size
    MqlTick tick;
@@ -464,13 +507,14 @@ int Cache(string s)
          return(i);
    int n = ArraySize(cSym);
    ArrayResize(cSym, n + 1); ArrayResize(cEmaE, n + 1); ArrayResize(cEmaT, n + 1);
-   ArrayResize(cAtr, n + 1); ArrayResize(cLastBar, n + 1);
+   ArrayResize(cAtr, n + 1); ArrayResize(cLastBar, n + 1); ArrayResize(cEmaS, n + 1);
    cSym[n]     = s;
    cEmaE[n]    = iMA(s, InpEntryTF, InpEntryEMA, 0, MODE_EMA, PRICE_CLOSE);
    cEmaT[n]    = iMA(s, InpTrendTF, InpTrendEMA, 0, MODE_EMA, PRICE_CLOSE);
    cAtr[n]     = iATR(s, InpEntryTF, InpATRPeriod);
+   cEmaS[n]    = iMA(s, InpEntryTF, InpSlowEMA, 0, MODE_EMA, PRICE_CLOSE);
    cLastBar[n] = 0;
-   if(cEmaE[n] == INVALID_HANDLE || cEmaT[n] == INVALID_HANDLE || cAtr[n] == INVALID_HANDLE)
+   if(cEmaE[n] == INVALID_HANDLE || cEmaT[n] == INVALID_HANDLE || cAtr[n] == INVALID_HANDLE || cEmaS[n] == INVALID_HANDLE)
      {
       Print("NewsBiasEA: could not create indicators for ", s);
       return(-1);
@@ -523,6 +567,34 @@ datetime ServerDayStart()
    TimeToStruct(TimeTradeServer(), d);
    d.hour = 0; d.min = 0; d.sec = 0;
    return(StructToTime(d));
+  }
+
+void Decision(string baseSym, string when, string why)
+  {
+   if(InpLogDecisions)
+      Print("NewsBiasEA: ", baseSym, " ", when, " ", why);
+  }
+
+// Consecutive losing closes for this symbol since the start of the current week (server time).
+int LossStreakThisWeek(string s)
+  {
+   MqlDateTime d;
+   TimeToStruct(TimeTradeServer(), d);
+   datetime weekStart = ServerDayStart() - (datetime)(d.day_of_week * 86400);
+   if(!HistorySelect(weekStart, TimeTradeServer() + 60)) return(0);
+   int streak = 0;
+   int n = HistoryDealsTotal();
+   for(int i = 0; i < n; i++)          // oldest first
+     {
+      ulong t = HistoryDealGetTicket(i);
+      if(t == 0 || HistoryDealGetInteger(t, DEAL_MAGIC) != InpMagic) continue;
+      if(HistoryDealGetString(t, DEAL_SYMBOL) != s) continue;
+      if(HistoryDealGetInteger(t, DEAL_ENTRY) != DEAL_ENTRY_OUT) continue;
+      double pnl = HistoryDealGetDouble(t, DEAL_PROFIT) + HistoryDealGetDouble(t, DEAL_SWAP)
+                   + HistoryDealGetDouble(t, DEAL_COMMISSION);
+      if(pnl < 0) streak++; else streak = 0;
+     }
+   return(streak);
   }
 
 bool TradedToday(string s)
