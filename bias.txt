@@ -1,5 +1,5 @@
 # Weekly currency bias for NewsBiasEA (demo account only)
-# Week of 2026-11-16 | Generated 2026-11-15 19:15 UTC (weekly rebuild)
+# Week of 2026-11-16 | Reviewed 2026-11-18 06:58 UTC (daily review)
 # Scorecard (-2 weakest .. +2 strongest):
 #   USD +2  Hot October CPI, December Fed hike fully priced (BofA sees Dec, Jan, Mar), DXY near 19-month high ~103; PPI softer at 0.3%
 #   GBP  0  BoE hiked to 4%, UK CPI Wed seen ~3.7%, December vs February debate, GBP/USD ~1.32
@@ -8,7 +8,7 @@
 #   CHF  0  Safe-haven bid on Nvidia turmoil, SNB on hold
 #   EUR -1  EUR/USD 1.1022, lowest weekly close since April 2025, no eurozone data of note; euro shorts most crowded in three years
 #   AUD -1  Down 1.3% on the week to 0.6776, RBA seen done after dovish 6-3 hike, risk-off; jobs Thu, shorts extreme
-#   NZD -2  0.5526 near 18-month lows, weak jobs, split RBNZ, election final count 27 Nov; shorts extreme
+#   NZD -2  Weakest G10 currency (17 Nov), below 0.5500 to lowest since 2020, weak jobs, split RBNZ, election count 27 Nov
 #
 # BIAS;symbol;BUY/SELL/NONE;conviction 1-2;valid until (UTC)
 BIAS;EURUSD;SELL;1;2026.11.20 20:00
@@ -17,7 +17,6 @@ BIAS;AUDUSD;NONE;0;2026.11.20 20:00
 BIAS;USDJPY;NONE;0;2026.11.20 20:00
 #
 # EVENT;time (UTC);currency or ALL;description  (no entries 30 min either side)
-EVENT;2026.11.17 13:30;USD;US retail sales (Oct)
 EVENT;2026.11.18 19:00;USD;FOMC minutes (Oct meeting)
 EVENT;2026.11.19 00:30;AUD;Australia jobs (Oct)
 EVENT;2026.11.19 00:30;NZD;Australia jobs (Oct), moves kiwi via AUD/NZD
